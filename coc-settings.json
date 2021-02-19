@@ -1,0 +1,45 @@
+{
+    "suggest.noselect": false,
+    "coc.preferences.formatOnSaveFiletypes": [
+        "javascript",
+        "typescript",
+        "typescriptreact",
+        "json",
+        "javascriptreact",
+        "typescript.tsx",
+        "graphql",
+        "python"
+    ],
+    "languageserver": {
+        "python.jediEnabled": false,
+        "ccls": {
+            "command": "ccls",
+            "filetypes": [
+                "c",
+                "cpp",
+                "cuda",
+                "objc",
+                "objcpp"
+            ],
+            "rootPatterns": [
+                ".ccls",
+                "compile_commands.json",
+                ".vim/",
+                ".git/",
+                ".hg/"
+            ],
+            "initializationOptions": {
+                "cache": {
+                    "directory": "/tmp/ccls-cache"
+                },
+                "highlight": {
+                    "lsRanges": true
+                }
+            }
+        }
+    },
+    "python.autoComplete.extraPaths": [
+      "${env:SPARK_HOME}/python",
+      "${env:SPARK_HOME}/python/pyspark"
+    ]
+}
