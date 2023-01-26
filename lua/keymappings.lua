@@ -55,10 +55,6 @@ MAP('n', '<A-K>', ':m .-2<CR>==', {noremap = true, silent = true})
 MAP('v', '<A-J>', ":m '>+1<CR>gv=gv", {noremap = true, silent = true})
 MAP('v', '<A-K>', ":m '<-2<CR>gv=gv", {noremap = true, silent = true})
 
--- Better vertical movement
---MAP('n', 'j', 'gj', {noremap = true, silent = true})
---MAP('n', 'k', 'gk', {noremap = true, silent = true})
-
 -- Open and close terminal with F8
 MAP('n', '<F8>', ':lua Open_terminal()<CR>', {noremap = true})
 MAP('t', '<F8>', '<C-\\><C-N>:q!<CR>', {noremap = true})
