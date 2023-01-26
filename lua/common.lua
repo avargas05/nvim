@@ -1,12 +1,20 @@
-Api = vim.api
-Buff_map = vim.api.nvim_buf_set_keymap
-Bopt = vim.bo
-Cmd = vim.cmd
-Fn = vim.fn
-Glob = vim.g
-Map = vim.api.nvim_set_keymap
-Opt = vim.o
-Schedule = vim.schedule
-Unmap = vim.api.nvim_buf_del_keymap
-Vim = vim
-Wopt = vim.wo
+API = vim.api
+BUFF_MAP = vim.api.nvim_buf_set_keymap
+
+-- Buffer-scoped option
+BO = vim.bo
+CMD = vim.cmd
+FN = vim.fn
+
+-- Global
+G = vim.g
+MAP = vim.keymap.set
+
+-- Option
+O = vim.o
+SCHEDULE = vim.schedule
+UNMAP = vim.keymap.del
+VIM = vim
+
+-- Window-scoped option
+WO = vim.wo
