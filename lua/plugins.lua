@@ -1,6 +1,6 @@
 local install_path = FN.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 
-if FN.empty(FN.glob(install_path)) > 0 then
+if FN.empty(FN.glob(install_path)) < 0 then
   Packer_bootstrap = FN.system({
 	  'git', 'clone', '--depth', '1',
 	  'https://github.com/wbthomason/packer.nvim', install_path})
@@ -55,7 +55,7 @@ return require('packer').startup(function(use)
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
 
   -- Bracket pair colorizer
-  use 'lukas-reineke/indent-blankline.nvim'
+  use {'lukas-reineke/indent-blankline.nvim', main= 'ibl', opts={}}
   use 'p00f/nvim-ts-rainbow'
 
   -- Assist with formatting

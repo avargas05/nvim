@@ -72,7 +72,7 @@ MAP('n', '<C-c>', ':.w! ~/.vimbuffer<CR>', {})
 MAP('', '<C-p>', ':r ~/.vimbuffer<CR>', {})
 
 --Nvim Tree configuration
-MAP('', '<C-N>', ':NvimTreeToggle<CR>', {})
+MAP('', '<C-n>', ':NvimTreeToggle<CR>', {})
 
 --Code folding
 MAP('n', '<space>', 'za', {noremap = true})

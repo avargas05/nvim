@@ -1,6 +1,5 @@
 require('common')
 require('plugins')
-require('keymappings')
 
 -- Text format and encoding
 O.encoding = 'utf-8'
@@ -36,11 +35,10 @@ CMD[[autocmd BufWritePre * %s/\s\+$//e]]
 
 -- Bracket Pairs
 require('pears').setup()
-require('indent_blankline').setup{
-  show_current_context = true,
-  show_current_context_start = false,
-  char = '▏',
-  use_treesitter = true,
+require('ibl').setup{
+  indent = {
+	  char = '▏',
+  },
 }
 
 -- Code Folding
@@ -95,10 +93,10 @@ CMD[[hi LineNr ctermfg=100 ctermbg=NONE cterm=NONE]]
 G.python3_host_prog = '/usr/bin/python'
 G.python_host_prog = '/usr/bin/python2'
 
-local config_status_ok, nvim_tree_config = pcall(require, "nvim-tree.config")
-if not config_status_ok then
-  return
-end
+--local config_status_ok, nvim_tree_config = pcall(require, "nvim-tree.config")
+--if not config_status_ok then
+--  return
+--end
 
 require('nvim-tree').setup{
   update_cwd = true,
@@ -107,23 +105,10 @@ require('nvim-tree').setup{
     enable = true,
     update_cwd = true
   },
-  view = {
-    mappings = {
-      list = {
-        { key = {"<CR>", "<2-LeftMouse>"}, action = "edit" },
-        { key = "v", action = "vsplit" },
-        { key = "s", action = "split" },
-        { key = "h", action = "close_node" },
-        { key = "o", action = "system_open" },
-      },
-    },
-  },
 }
-
 
 require('renamer').setup()
 require('project_nvim').setup()
-
 require'nvim-treesitter.configs'.setup {
   -- One of "all", "maintained" (parsers with maintainers),
   -- or a list of languages
@@ -170,7 +155,7 @@ lsp.setup()
 
 require('tabnine').setup({
   disable_auto_comment=true,
-  accept_keymap="<Tab>",
+  accept_keymap="<S-Tab>",
   dismiss_keymap = "<C-]>",
   debounce_ms = 300,
   suggestion_color = {gui = "#808080", cterm = 244},
@@ -193,3 +178,5 @@ require('lualine').setup({
     section_separators = {left = '', right = ''},
   }
 })
+
+require('keymappings')
